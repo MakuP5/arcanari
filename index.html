@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Móvil</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=view_in_ar" />
+
+  <!-- Importar fuente Nabla -->
+  <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-family: 'Nabla', cursive;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .imagen {
+      width: 80%;
+      max-width: 400px;
+      height: auto;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
+
+  .boton {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: #4a8cff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Espacio entre el ícono y el texto */
+
+  /* Efecto 3D */
+  box-shadow: 0px 6px 0px #2d5bbd, 
+              0px 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.boton .material-symbols-outlined {
+  font-size: 1.6rem; /* Tamaño del ícono */
+  vertical-align: middle; /* Alinea el ícono verticalmente con el texto */
+}
+
+.boton:active {
+  /* Al presionar, el botón "se hunde" */
+  transform: translateY(6px);
+  box-shadow: 0px 0px 0px #2d5bbd,
+              0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      .boton {
+        font-size: 1rem;
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¡Bienvenido a la experiencia AR!</h1>
+  <img src="img/mascota.png" alt="Imagen de ejemplo" class="imagen">
+  <img src="img/dislogo.png" alt="logo ups" class="imagen">
+ <a href="pagina2.html"><button class="boton">
+  <span class="material-symbols-outlined">view_in_ar</span>
+  Entrar en AR
+</button></a>
+</body>
+</html>
