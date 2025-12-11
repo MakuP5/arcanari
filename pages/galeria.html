@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Test AR – Escultura Inca Cañari</title>
+
+  <!-- Model Viewer (lo usarás en las páginas internas de cada modelo) -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      background: #0c0c0c;
+      color: white;
+    }
+
+    .contenedor-texto {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 10px auto;
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
+    .indicacion {
+      margin-top: 12px;
+      font-size: 14px;
+      opacity: 0.8;
+      font-style: italic;
+    }
+
+    /* GALERÍA */
+    .galeria-modelos {
+      max-width: 1200px;
+      margin: 20px auto 40px;
+      padding: 0 16px 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .item-modelo {
+      background: #151515;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .item-modelo img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .item-modelo h2 {
+      font-size: 16px;
+      margin: 6px 0 10px;
+      font-weight: 600;
+    }
+
+    /* Botón con forma de cubo (cuadrado) */
+    .btn-cubo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 110px;
+      height: 110px; /* cuadrado = sensación de cubo */
+      margin-top: 8px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: radial-gradient(circle at 30% 20%, #ffffff33, #1a1a1a 60%, #000000 100%);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 10px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Carita de cubo dentro del botón */
+    .btn-cubo::before {
+      content: "";
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.6);
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 6px 6px 0 rgba(255,255,255,0.15);
+      opacity: 0.9;
+    }
+
+    .btn-cubo span {
+      margin-top: 40px; /* deja espacio para el “cubo” dibujado arriba */
+      z-index: 1;
+    }
+
+    .btn-cubo:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 32px rgba(0,0,0,0.8);
+    }
+
+    .btn-cubo:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TEXTO SUPERIOR -->
+  <div class="contenedor-texto">
+    <h1>Escultura Inca Cañari en Realidad Aumentada</h1>
+    <p>
+      Esta galería presenta diferentes piezas culturales inspiradas en la cosmovisión
+      del pueblo Cañari y otras manifestaciones andinas. Cada modelo 3D puede ser
+      explorado en realidad aumentada desde tu dispositivo móvil.
+    </p>
+
+    <p class="indicacion">
+      Elige una pieza y luego presiona el botón <strong>"Entrar en AR"</strong> para verla en tu espacio.
+    </p>
+  </div>
+
+  <!-- GALERÍA DE MODELOS -->
+  <section class="galeria-modelos">
+
+    <!-- MODELO 1 -->
+    <div class="item-modelo">
+      <a href="modelo1.html">
+        <img src="../img/modelo1.jpg" alt="Modelo 1 - Escultura Cañari">
+      </a>
+      <h2>Escultura Cañari 01</h2>
+      <a href="modelo1.html" class="btn-cubo">
+        <span>Entrar en AR</span>
+      </a>
+    </div>
+
+    <!-- MODELO 2 -->
+    <div class="item-modelo">
+      <a href="modelo2.html">
+        <img src="../img/modelo2.jpg" alt="Modelo 2 - Escultura Cañari">
+      </a>
+      <h2>Escultura Cañari 02</h2>
+      <a href="modelo2.html" class="btn-cubo">
+        <span>Entrar en AR</span>
+      </a>
+    </div>
+
+    <!-- MODELO 3 -->
+    <div class="item-modelo">
+      <a href="modelo3.html">
+        <img src="../img/modelo3.jpg" alt="Modelo 3 - Escultura Cañari">
+      </a>
+      <h2>Escultura Cañari 03</h2>
+      <a href="modelo3.html" class="btn-cubo">
+        <span>Entrar en AR</span>
+      </a>
+    </div>
+
+    <!-- MODELO 4 -->
+    <div class="item-modelo">
+      <a href="modelo4.html">
+        <img src="../img/modelo4.jpg" alt="Modelo 4 - Escultura Cañari">
+      </a>
+      <h2>Escultura Cañari 04</h2>
+      <a href="modelo4.html" class="btn-cubo">
+        <span>Entrar en AR</span>
+      </a>
+    </div>
+
+    <!-- MODELO 5 -->
+    <div class="item-modelo">
+      <a href="modelo5.html">
+        <img src="../img/modelo5.jpg" alt="Modelo 5 - Escultura Cañari">
+      </a>
+      <h2>Escultura Cañari 05</h2>
+      <a href="modelo5.html" class="btn-cubo">
+        <span>Entrar en AR</span>
+      </a>
+    </div>
+
+    <!-- MODELO 6 -->
+    <div class="item-modelo">
+      <a href="modelo6.html">
+        <img src="../img/modelo6.jpg" alt="Modelo 6 - Escultura Cañari">
+      </a>
+      <h2>Escultura Cañari 06</h2>
+      <a href="modelo6.html" class="btn-cubo">
+        <span>Entrar en AR</span>
+      </a>
+    </div>
+
+    <!-- MODELO 7 -->
+    <div class="item-modelo">
+      <a href="modelo7.html">
+        <img src="../img/modelo7.jpg" alt="Modelo 7 - Escultura Cañari">
+      </a>
+      <h2>Escultura Cañari 07</h2>
+      <a href="modelo7.html" class="btn-cubo">
+        <span>Entrar en AR</span>
+      </a>
+    </div>
+
+    <!-- MODELO 8 -->
+    <div class="item-modelo">
+      <a href="modelo8.html">
+        <img src="../img/modelo8.jpg" alt="Modelo 8 - Escultura Cañari">
+      </a>
+      <h2>Escultura Cañari 08</h2>
+      <a href="modelo8.html" class="btn-cubo">
+        <span>Entrar en AR</span>
+      </a>
+    </div>
+
+    <!-- MODELO 9 -->
+    <div class="item-modelo">
+      <a href="modelo9.html">
+        <img src="../img/modelo9.jpg" alt="Modelo 9 - Escultura Cañari">
+      </a>
+      <h2>Escultura Cañari 09</h2>
+      <a href="modelo9.html" class="btn-cubo">
+        <span>Entrar en AR</span>
+      </a>
+    </div>
+
+    <!-- MODELO 10 -->
+    <div class="item-modelo">
+      <a href="modelo10.html">
+        <img src="../img/modelo10.jpg" alt="Modelo 10 - Escultura Cañari">
+      </a>
+      <h2>Escultura Cañari 10</h2>
+      <a href="modelo10.html" class="btn-cubo">
+        <span>Entrar en AR</span>
+      </a>
+    </div>
+
+  </section>
+
+</body>
+</html>
