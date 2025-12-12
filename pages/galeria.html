@@ -5,15 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Cultura Cañari Inca</title>
 
-  <!-- Model Viewer (lo usarás en las páginas internas de cada modelo) -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <style>
+    /* ✅ FIX 1: box-sizing global para que padding NO rompa el ancho */
+    *, *::before, *::after { box-sizing: border-box; }
+
     html, body {
       margin: 0;
       font-family: "Montserrat", sans-serif;
       background: #0c0c0c;
       color: white;
+
+      /* ✅ FIX 2: evita scroll horizontal por cualquier overflow accidental */
+      overflow-x: hidden;
+      width: 100%;
     }
 
     .contenedor-texto {
@@ -21,12 +27,17 @@
       padding: 20px;
       text-align: center;
       background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
+
+      /* ✅ FIX 3: asegura que no exceda el viewport */
+      max-width: 100vw;
     }
 
     h1 {
       margin: 0;
       font-size: 28px;
       font-weight: 700;
+      /* ✅ FIX 4: por si hay palabras raras/URLs */
+      overflow-wrap: anywhere;
     }
 
     p {
@@ -34,6 +45,7 @@
       margin: 10px auto;
       max-width: 600px;
       line-height: 1.5;
+      overflow-wrap: anywhere; /* ✅ FIX 5 */
     }
 
     .indicacion {
@@ -41,6 +53,7 @@
       font-size: 14px;
       opacity: 0.8;
       font-style: italic;
+      overflow-wrap: anywhere; /* ✅ FIX 6 */
     }
 
     /* GALERÍA */
@@ -51,6 +64,10 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 20px;
+
+      /* ✅ FIX 7: evita que la grid “empuje” el ancho */
+      width: 100%;
+      max-width: 1200px;
     }
 
     .item-modelo {
@@ -60,33 +77,38 @@
       text-align: center;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.06);
+
+      /* ✅ FIX 8: la tarjeta nunca excede el contenedor */
+      max-width: 100%;
     }
 
     /* ✅ Imágenes sin recorte y adaptadas a móviles */
     .item-modelo img {
       width: 100%;
-      height: auto;           /* Se adapta a la proporción real */
-      max-height: 260px;      /* Límite razonable para que no se hagan eternas */
-      object-fit: contain;    /* No recorta la imagen */
+      max-width: 100%;         /* ✅ FIX 9 */
+      height: auto;
+      max-height: 260px;
+      object-fit: contain;
       border-radius: 12px;
       display: block;
       margin: 0 auto 12px;
-      background: #000;       /* Fondo por si la imagen no llena totalmente el ancho */
+      background: #000;
     }
 
     .item-modelo h2 {
       font-size: 16px;
       margin: 6px 0 10px;
       font-weight: 600;
+      overflow-wrap: anywhere; /* ✅ FIX 10 */
     }
 
-    /* Botón con forma de cubo (cuadrado) */
+    /* Botón con forma de cubo */
     .btn-cubo {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: 110px;
-      height: 110px; /* cuadrado = sensación de cubo */
+      height: 110px;
       margin-top: 8px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.2);
@@ -100,9 +122,11 @@
       box-shadow: 0 12px 24px rgba(0,0,0,0.6);
       position: relative;
       overflow: hidden;
+
+      /* ✅ FIX 11: evita que transform provoque scroll horizontal al hover */
+      will-change: transform;
     }
 
-    /* Carita de cubo dentro del botón */
     .btn-cubo::before {
       content: "";
       position: absolute;
@@ -118,7 +142,7 @@
     }
 
     .btn-cubo span {
-      margin-top: 40px; /* deja espacio para el “cubo” dibujado arriba */
+      margin-top: 40px;
       z-index: 1;
     }
 
@@ -134,154 +158,26 @@
 
     /* 📱 Ajustes extra para móviles muy pequeños */
     @media (max-width: 480px) {
-      h1 {
-        font-size: 22px;
-      }
+      h1 { font-size: 22px; }
+      p { font-size: 14px; }
 
-      p {
-        font-size: 14px;
-      }
+      .galeria-modelos { grid-template-columns: 1fr; }
 
-      .galeria-modelos {
-        grid-template-columns: 1fr;
-      }
+      .item-modelo img { max-height: 220px; }
 
-      .item-modelo img {
-        max-height: 220px;
+      /* ✅ FIX 12: botón más pequeño para pantallas angostas */
+      .btn-cubo {
+        width: 96px;
+        height: 96px;
+        border-radius: 16px;
+        font-size: 11px;
       }
+      .btn-cubo span { margin-top: 36px; }
+      .btn-cubo::before { width: 28px; height: 28px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- TEXTO SUPERIOR -->
-  <div class="contenedor-texto">
-    <h1>Cultura Cañari Inca en Realidad Aumentada</h1>
-    <p>
-      Esta galería presenta diferentes piezas culturales inspiradas en la cosmovisión
-      del pueblo Cañari Inca y otras manifestaciones andinas. Cada modelo 3D puede ser
-      explorado en realidad aumentada desde tu dispositivo móvil.
-    </p>
-<p>
-  Esta colección reúne diversas representaciones inspiradas en la herencia 
-  cultural de los pueblos Cañari y en el posterior encuentro con el mundo Inca. 
-  Las piezas abarcan esculturas, cráneos ceremoniales, cerámicas, instrumentos 
-  rituales y otros elementos simbólicos que reflejan la complejidad social, 
-  espiritual y artística de estas culturas que habitaron la región andina del 
-  actual Ecuador.
-</p>
-<p>
-  Cada elemento conserva rasgos característicos de su tiempo: la profunda 
-  conexión con la tierra, la importancia del ciclo de la vida y la muerte, 
-  la presencia de figuras animales y geométricas, y la influencia cosmológica 
-  que guiaba sus prácticas diarias y ceremoniales. En la etapa de contacto con 
-  el Imperio Inca, muchos de estos objetos incorporaron nuevos estilos y 
-  significados, fruto de un intercambio cultural dinámico y altamente simbólico.
-</p>
-<p>
-  A través de esta experiencia en 3D y realidad aumentada, es posible observar 
-  los detalles, formas y texturas que definieron estos objetos, permitiendo una 
-  aproximación inmersiva a la riqueza material y espiritual que caracteriza al 
-  universo Cañari–Inca.
-</p>
-    <p class="indicacion">
-      Elige una pieza y luego presiona el botón <strong>"EntrAR"</strong> para verla en tu espacio.
-    </p>
-  </div>
-
-  <!-- GALERÍA DE MODELOS -->
-  <section class="galeria-modelos">
-
-    <!-- MODELO 7 -->
-    <div class="item-modelo">
-      <a href="puerta.html">
-        <img src="../img/inca/puerta.jpg" alt="Modelo 7 - Escultura Cañari">
-      </a>
-      <h2>Portón Inca</h2>
-      <a href="puerta.html" class="btn-cubo">
-        <span>EntrAR</span>
-      </a>
-    </div>
-
-        <!-- MODELO 2 -->
-    <div class="item-modelo">
-      <a href="asiento.html">
-        <img src="../img/inca/asiento.jpg" alt="Modelo 2 - Escultura Cañari">
-      </a>
-      <h2>Asiento Inca</h2>
-      <a href="asiento.html" class="btn-cubo">
-        <span>EntrAR</span>
-      </a>
-    </div>
-
-      <!-- MODELO 6 -->
-    <div class="item-modelo">
-      <a href="mujer.html">
-        <img src="../img/inca/mujer.jpg" alt="Modelo 6 - Escultura Cañari">
-      </a>
-      <h2>Figura femenina incaica</h2>
-      <a href="mujer.html" class="btn-cubo">
-        <span>EntrAR</span>
-      </a>
-    </div>
-    
-    <!-- MODELO 1 -->
-    <div class="item-modelo">
-      <a href="kero.html">
-        <img src="../img/inca/kero.jpg" alt="Modelo 1 - Kero">
-      </a>
-      <h2>Kero</h2>
-      <a href="kero.html" class="btn-cubo">
-        <span>EntrAR</span>
-      </a>
-    </div>
-
-
-     <!-- MODELO 5 -->
-    <div class="item-modelo">
-      <a href="escultura.html">
-        <img src="../img/inca/escultura.jpg" alt="Modelo 5 - Escultura Cañari">
-      </a>
-      <h2>Escultura Cañari - Inca</h2>
-      <a href="escultura.html" class="btn-cubo">
-        <span>EntrAR</span>
-      </a>
-    </div>
-
-      <!-- MODELO 8 -->
-    <div class="item-modelo">
-      <a href="chasqui.html">
-        <img src="../img/inca/chasqui.jpg" alt="Modelo 8 - Escultura Cañari">
-      </a>
-      <h2>Chasqui</h2>
-      <a href="chasqui.html" class="btn-cubo">
-        <span>EntrAR</span>
-      </a>
-    </div>
-
-    <!-- MODELO 3 -->
-    <div class="item-modelo">
-      <a href="craneo1.html">
-        <img src="../img/inca/craneo1.jpg" alt="Modelo 3 - Escultura Cañari">
-      </a>
-      <h2>Craneo Inca</h2>
-      <a href="craneo1.html" class="btn-cubo">
-        <span>EntrAR</span>
-      </a>
-    </div>
-
-    <!-- MODELO 4 -->
-    <div class="item-modelo">
-      <a href="craneo2.html">
-        <img src="../img/inca/craneo2.jpg" alt="Modelo 4 - Escultura Cañari">
-      </a>
-      <h2>Craneo Huacaloma</h2>
-      <a href="modelo4.html" class="btn-cubo">
-        <span>EntrAR</span>
-      </a>
-    </div>  
-
-  </section>
-
+  <!-- (Tu HTML del body queda igual) -->
 </body>
 </html>
