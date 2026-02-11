@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ChacanApp | Landing del Proyecto</title>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=view_in_ar" />
+    <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#0b0a10;
@@ -16,6 +17,7 @@
       --brand2:#7f1d1d;
       --radius:18px;
       --shadow:0 20px 50px rgba(0,0,0,.35);
+      
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
@@ -71,7 +73,9 @@
       line-height:1.15;
     }
     .subline{font-size:14px;color:var(--muted);margin-top:6px}
-
+    h2{
+      padding-left: 25px;
+    }
     /* QR box */
     .qrbox{
       display:flex;
@@ -127,6 +131,7 @@
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:16px;
+      padding: 20px;
     }
     .member{
       display:flex;
@@ -216,14 +221,29 @@
             ChacanApp al igual que los astros nace de y para las estrellas.
             Creemos que
             En cada una de nuestras cajas misteriosas podras encontrar una de las cuatro figuras coleccionables de los astros andinos
-           <br> 
+           <br>
+           Nuestra imagen, figurillas, estilo todo tiene un porque  
            <img style="padding: 10px; text-align: center" src="img/figuras chacana.jpeg", width="500px"; height="auto">
            <br>
+          </p>
+          <br src="caja_chacanaFinal.glb"
+              ios-src="caja_chacanaFinal.usdz"
+              ar
+              ar-modes="webxr scene-viewer quick-look"
+              camera-controls
+              alt="cajas ChacanApp">
+          <br>
+          <model-viewer
+              src="caja_chacanaFinal.glb"
+              ios-src="caja_chacanaFinal.usdz"
+              ar
+              ar-modes="webxr scene-viewer quick-look"
+              camera-controls
+              alt="cajas ChacanApp">
             AQUÍ VA LA DESCRIPCIÓN DEL PROYECTO (5–7 líneas).
             Explica el concepto del kit Qhapaq Ñan, la conexión cultural
             Cañari–Inca y cómo se enlaza el packaging físico con la
             experiencia digital mediante QR.
-          </p>
           </div>
           
         </section>
@@ -245,26 +265,40 @@
             <!-- Integrante -->
             <div class="member">
               <img
-                src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=70"
+                src="img/adrian qkapachan.jpg"
                 alt="Integrante (referencia)"
               />
               <div>
                 <b>ADRIAN ULLOA PADILLA</b><br />
                 <span class="role">Rol: Desarrollador AR - VR / Modelador 3D</span>
-                <p>Breve descripción del rol dentro del proyecto (2–3 líneas).</p>
+                <p>Desarrollo de las experiencias VR y AR en unity ademas del modelado del personaje "Illapa".</p>
               </div>
             </div>
 
             <!-- Integrante -->
             <div class="member">
               <img
-                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=70"
+                src="img/Santiago_qkapachan.jpg"
                 alt="Integrante (referencia)"
               />
               <div>
                 <b>SANTIAGO MERCHAN JARA</b><br />
-                <span class="role">Rol: MODELADOR 3D / Audio / Optimización</span>
-                <p>Breve descripción del rol dentro del proyecto (2–3 líneas).</p>
+                <span class="role">Rol: Modelador 3D / Concept Art / Diseño Grafico</span>
+                <p>Encargado del diseño y conceptualizacion de los personajes, director y desarrollador del apartado visual de "ChacanApp",
+                  ademas de modelador del personaje de "Mamaquilla".</p>
+              </div>
+            </div>
+
+            <!-- Integrante -->
+            <div class="member">
+              <img
+                src="img/Bruno_qkapachan.jpg"
+                alt="BRUNO IGLESIAS img"
+              />
+              <div>
+                <b>BRUNO IGLESIAS</b><br />
+                <span class="role">Rol: Modelador 3D / Packaging /Tester </span>
+                <p>Tester de las experiencias AR y VR, .</p>
               </div>
             </div>
 
@@ -275,22 +309,10 @@
                 alt="Anabel Ortiz Leon img"
               />
               <div>
-                <b>Anabel Ortiz Leon</b><br />
-                <span class="role">Rol: Modeladora 3D / Packaging </span>
-                <p>Breve descripción del rol dentro del proyecto (2–3 líneas).</p>
-              </div>
-            </div>
-
-            <!-- Integrante -->
-            <div class="member">
-              <img
-                src="https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&fit=crop&w=400&q=70"
-                alt="Integrante (referencia)"
-              />
-              <div>
-                <b>NOMBRE COMPLETO</b><br />
-                <span class="role">Rol: Documentación / Video / Evidencias</span>
-                <p>Breve descripción del rol dentro del proyecto (2–3 líneas).</p>
+                <b>ANABEL ORTIZ LEON</b><br />
+                <span class="role">Rol: Modeladora 3D / Packaging / Diseño</span>
+                <p>Desarrolladora de elementos de interfaz para la experiencia VR  y AR, 
+                  diseñadora del packaging y modelado del personaje de "Inti".</p>
               </div>
             </div>
 
@@ -298,7 +320,7 @@
         </section>
 
         <!-- FOOTER -->
-        <div class="footer">
+        <div class="footer" style="padding: 20px;">
           Proyecto Integrador · Qhapaq Ñan · Séptimo Ciclo · Diseño Multimedia UPS
         </div>
 
