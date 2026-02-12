@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ============================= -->
+  <!-- CONFIGURACIÓN BÁSICA DEL DOCUMENTO -->
+  <!-- ============================= -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kit Interactivo Qhapaq Ñan | Proyecto XR</title>
+
+  <!-- ============================= -->
+  <!-- ESTILOS GENERALES DEL PROYECTO -->
+  <!-- ============================= -->
+  <style>
+    /* ========= VARIABLES DE IDENTIDAD VISUAL ========= */
+    :root{
+      --bg:#0b0a10;
+      --paper:rgba(255,255,255,.95);
+      --ink:#1b1b1b;
+      --muted:#555;
+      --brand:#c0392b;
+      --brand-dark:#7f1d1d;
+      --radius:20px;
+      --shadow:0 25px 60px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+    }
+
+    /* ========= FONDO PATRÓN GLOBAL ========= */
+    .page{
+      min-height:100vh;
+      padding:30px 18px;
+      background-image:url('patron.avif');
+      background-repeat:repeat;
+      background-size:420px auto;
+    }
+
+    /* ========= CONTENEDOR CENTRAL ========= */
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    /* ========= TARJETA PRINCIPAL BLANCA ========= */
+    .paper{
+      background:var(--paper);
+      border-radius:var(--radius);
+      padding:30px;
+      box-shadow:var(--shadow);
+      animation:fadeIn .7s ease;
+    }
+
+    /* ========= ANIMACIÓN DE ENTRADA ========= */
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(15px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    /* ========= ENCABEZADO PRINCIPAL ========= */
+    .header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:20px;
+      flex-wrap:wrap;
+      border-bottom:4px solid var(--brand);
+      padding-bottom:18px;
+      margin-bottom:30px;
+    }
+
+    .kicker{
+      font-size:13px;
+      letter-spacing:0.2em;
+      font-weight:800;
+      text-transform:uppercase;
+      color:var(--brand-dark);
+    }
+
+    h1{
+      margin:8px 0 0;
+      font-size:36px;
+      font-weight:900;
+      line-height:1.1;
+    }
+
+    .subline{
+      margin-top:6px;
+      font-size:15px;
+      color:var(--muted);
+    }
+
+    /* ========= CAJA QR ========= */
+    .qrbox{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:12px;
+      border:2px solid var(--brand);
+      border-radius:14px;
+      background:#fff;
+      max-width:360px;
+    }
+
+    .qrbox img{
+      width:75px;
+      height:75px;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,.15);
+    }
+
+    .qrbox small{
+      display:block;
+      color:#555;
+      margin-top:4px;
+      line-height:1.3;
+    }
+
+    /* ========= SECCIONES GENERALES ========= */
+    section{
+      margin-bottom:30px;
+    }
+
+    h2{
+      color:var(--brand-dark);
+      margin-bottom:12px;
+      font-size:20px;
+    }
+
+    p{
+      line-height:1.6;
+      margin-bottom:12px;
+    }
+
+    /* ========= IMAGEN PRINCIPAL DEL PROYECTO ========= */
+    .heroimg{
+      width:100%;
+      max-height:450px;
+      object-fit:cover;
+      border-radius:16px;
+      border:3px solid var(--brand);
+    }
+
+    /* ========= BOTÓN PRINCIPAL ========= */
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      background:var(--brand);
+      color:#fff;
+      font-weight:800;
+      text-decoration:none;
+      border-radius:12px;
+      transition:all .25s ease;
+    }
+
+    .btn:hover{
+      background:var(--brand-dark);
+      transform:translateY(-3px);
+    }
+
+    /* ========= GRID DEL EQUIPO ========= */
+    .team{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .member{
+      display:flex;
+      gap:14px;
+      padding:16px;
+      border:2px solid var(--brand);
+      border-radius:16px;
+      background:#fff;
+    }
+
+    .member img{
+      width:85px;
+      height:85px;
+      border-radius:12px;
+      object-fit:cover;
+      border:1px solid rgba(0,0,0,.15);
+    }
+
+    .role{
+      font-size:14px;
+      color:#555;
+    }
+
+    /* ========= FOOTER ========= */
+    .footer{
+      margin-top:40px;
+      text-align:center;
+      font-size:13px;
+      color:#555;
+      border-top:2px dashed var(--brand);
+      padding-top:14px;
+    }
+
+    /* ========= RESPONSIVE ========= */
+    @media(max-width:900px){
+      .team{grid-template-columns:1fr;}
+      h1{font-size:28px;}
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================= -->
+  <!-- FONDO GENERAL -->
+  <!-- ============================= -->
+  <div class="page">
+    <div class="container">
+
+      <!-- ============================= -->
+      <!-- TARJETA PRINCIPAL DEL CONTENIDO -->
+      <!-- ============================= -->
+      <div class="paper">
+
+        <!-- ============================= -->
+        <!-- ENCABEZADO DEL PROYECTO -->
+        <!-- ============================= -->
+        <div class="header">
+          <div>
+            <div class="kicker">Proyecto Integrador · Diseño Multimedia UPS</div>
+            <h1>Kit Interactivo Qhapaq Ñan – Experiencia XR Cañari–Inca</h1>
+            <div class="subline">Realidad Aumentada · Realidad Virtual · Impresión 3D · Packaging Interactivo</div>
+          </div>
+
+          <!-- QR DEL PROYECTO -->
+          <div class="qrbox">
+            <img src="qr1.jpg" alt="QR del proyecto">
+            <div>
+              <b>Explora la experiencia</b>
+              <small>Escanea el código QR para acceder a la web y galería interactiva del proyecto.</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================= -->
+        <!-- DESCRIPCIÓN ACADÉMICA DEL PROYECTO -->
+        <!-- ============================= -->
+        <section>
+          <h2>Descripción del Proyecto</h2>
+          <p>
+            El Kit Interactivo Qhapaq Ñan es una propuesta educativa y tecnológica que integra
+            Realidad Aumentada (AR), Realidad Virtual (VR) e impresión 3D para reinterpretar
+            el patrimonio cultural del Camino Cañari–Inca en Ecuador.
+          </p>
+          <p>
+            A través de un sistema de packaging interactivo con códigos QR y multi-target AR,
+            el usuario conecta el objeto físico con una experiencia digital inmersiva,
+            promoviendo la interpretación cultural, el aprendizaje significativo
+            y el turismo tecnológico.
+          </p>
+        </section>
+
+        <!-- ============================= -->
+        <!-- IMAGEN REPRESENTATIVA DEL PROYECTO -->
+        <!-- ============================= -->
+        <section>
+          <h2>Visualización del Kit</h2>
+          <img src="foto-proyecto.jpg" alt="Imagen del kit interactivo" class="heroimg">
+        </section>
+
+        <!-- ============================= -->
+        <!-- ACCESO A GALERÍA AR -->
+        <!-- ============================= -->
+        <section>
+          <h2>Galería de Experiencia AR</h2>
+          <p>Accede a la demostración interactiva y visualiza los modelos 3D y escenas XR desarrolladas en Unity.</p>
+          <a class="btn" href="https://TU-LINK-AQUI.com" target="_blank">Abrir Galería Interactiva</a>
+        </section>
+
+        <!-- ============================= -->
+        <!-- EQUIPO DE TRABAJO -->
+        <!-- ============================= -->
+        <section>
+          <h2>Equipo de Desarrollo</h2>
+
+          <div class="team">
+            
+          <div class="member">
+              <img src="foto-sebas.jpg" alt="Sebastian">
+              <div>
+                <b>Sebastián Vega</b><br>
+                <span class="role">Dirección Creativa · Concepto General</span>
+                <p>Desarrollo conceptual del proyecto, integración tecnológica y dirección del enfoque cultural.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ============================= -->
+        <!-- PIE DE PÁGINA -->
+        <!-- ============================= -->
+        <div class="footer">
+          Proyecto Integrador · Séptimo Ciclo · Carrera de Diseño Multimedia · Universidad Politécnica Salesiana
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
