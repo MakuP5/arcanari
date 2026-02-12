@@ -1,1 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Cultura Cañari Inca</title>
 
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    /* ✅ FIX 1: box-sizing global para que padding NO rompa el ancho */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      background: #0c0c0c;
+      color: white;
+
+      /* ✅ FIX 2: evita scroll horizontal por cualquier overflow accidental */
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    .contenedor-texto {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
+
+      /* ✅ FIX 3: asegura que no exceda el viewport */
+      max-width: 100vw;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+      /* ✅ FIX 4: por si hay palabras raras/URLs */
+      overflow-wrap: anywhere;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 10px auto;
+      max-width: 600px;
+      line-height: 1.5;
+      overflow-wrap: anywhere; /* ✅ FIX 5 */
+    }
+
+    .indicacion {
+      margin-top: 12px;
+      font-size: 14px;
+      opacity: 0.8;
+      font-style: italic;
+      overflow-wrap: anywhere; /* ✅ FIX 6 */
+    }
+
+    /* GALERÍA */
+    .galeria-modelos {
+      max-width: 1200px;
+      margin: 20px auto 40px;
+      padding: 0 16px 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+
+      /* ✅ FIX 7: evita que la grid “empuje” el ancho */
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .item-modelo {
+      background: #151515;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+
+      /* ✅ FIX 8: la tarjeta nunca excede el contenedor */
+      max-width: 100%;
+    }
+
+    /* ✅ Imágenes sin recorte y adaptadas a móviles */
+    .item-modelo img {
+      width: 100%;
+      max-width: 100%;         /* ✅ FIX 9 */
+      height: auto;
+      max-height: 260px;
+      object-fit: contain;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto 12px;
+      background: #000;
+    }
+
+    .item-modelo h2 {
+      font-size: 16px;
+      margin: 6px 0 10px;
+      font-weight: 600;
+      overflow-wrap: anywhere; /* ✅ FIX 10 */
+    }
+
+    /* Botón con forma de cubo */
+    .btn-cubo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 110px;
+      height: 110px;
+      margin-top: 8px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: radial-gradient(circle at 30% 20%, #ffffff33, #1a1a1a 60%, #000000 100%);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 10px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+
+      /* ✅ FIX 11: evita que transform provoque scroll horizontal al hover */
+      will-change: transform;
+    }
+
+    .btn-cubo::before {
+      content: "";
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.6);
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 6px 6px 0 rgba(255,255,255,0.15);
+      opacity: 0.9;
+    }
+
+    .btn-cubo span {
+      margin-top: 40px;
+      z-index: 1;
+    }
+
+    .btn-cubo:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 32px rgba(0,0,0,0.8);
+    }
+
+    .btn-cubo:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+    }
+
+    /* 📱 Ajustes extra para móviles muy pequeños */
+    @media (max-width: 480px) {
+      h1 { font-size: 22px; }
+      p { font-size: 14px; }
+
+      .galeria-modelos { grid-template-columns: 1fr; }
+
+      .item-modelo img { max-height: 220px; }
+
+      /* ✅ FIX 12: botón más pequeño para pantallas angostas */
+      .btn-cubo {
+        width: 96px;
+        height: 96px;
+        border-radius: 16px;
+        font-size: 11px;
+      }
+      .btn-cubo span { margin-top: 36px; }
+      .btn-cubo::before { width: 28px; height: 28px; }
+    }
+  </style>
+</head>
+<body>
+<!-- TEXTO SUPERIOR --> <div class="contenedor-texto"> <h1>Cultura Cañari Inca en Realidad Aumentada</h1> 
+  <p> Esta galería presenta diferentes piezas culturales inspiradas en la cosmovisión del pueblo Cañari Inca 
+    y otras manifestaciones andinas. Cada modelo 3D puede ser explorado en realidad aumentada desde tu dispositivo móvil. </p> 
+  <p> Esta colección reúne diversas representaciones inspiradas en la herencia cultural de los pueblos Cañari y en el posterior 
+    encuentro con el mundo Inca. Las piezas abarcan esculturas, cráneos ceremoniales, cerámicas, instrumentos rituales y otros elementos
+    simbólicos que reflejan la complejidad social, espiritual y artística de estas culturas que habitaron la región andina del actual Ecuador. </p> 
+  <p> Cada elemento conserva rasgos característicos de su tiempo: la profunda conexión con la tierra, la importancia 
+    del ciclo de la vida y la muerte, la presencia de figuras animales y geométricas, y la influencia cosmológica que guiaba sus prácticas 
+    diarias y ceremoniales. En la etapa de contacto con el Imperio Inca, muchos de estos objetos incorporaron nuevos estilos y significados, 
+    fruto de un intercambio cultural dinámico y altamente simbólico. </p> <p> A través de esta experiencia en 3D y realidad aumentada, es posible observar 
+      los detalles, formas y texturas que definieron estos objetos, permitiendo una aproximación inmersiva a la riqueza material y espiritual que caracteriza
+      al universo Cañari–Inca. </p> <p class="indicacion"> Elige una pieza y luego presiona el botón <strong>"EntrAR"</strong> para verla en tu espacio. </p>
+</div> <!-- GALERÍA DE MODELOS -->
+  <section class="galeria-modelos">
+    <!-- MODELO 1 --> 
+    <div class="item-modelo"> 
+      <a href="corona.html"> 
+        <img src="Images/corona-antigua.jpg" alt="Modelo 1 - Corona Antigua Dorada"> </a> 
+      <h2>Cabeza Clava</h2> 
+      <a href="corona.html" class="btn-cubo"> 
+        <span>EntrAR</span> </a> </div>
+    
+    </div>
+  </section>
+</body>
+</html>
