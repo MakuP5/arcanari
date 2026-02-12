@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Qhapaq Ñan | Landing del Proyecto</title>
+  <title>TerraÑan XR | Landing del Proyecto</title>
 
   <style>
     :root{
@@ -21,7 +21,6 @@
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
     a{color:inherit}
 
-    /* Fondo patrón en TODA la página */
     .page{
       min-height:100vh;
       width:100%;
@@ -31,10 +30,8 @@
       background-size:420px auto;
     }
 
-    /* Contenedor centrado */
     .container{max-width:1200px;margin:0 auto;}
 
-    /* Capa de legibilidad */
     .paper{
       background:var(--paper);
       border-radius:var(--radius);
@@ -43,7 +40,6 @@
       border:1px solid rgba(0,0,0,.06);
     }
 
-    /* Header */
     .header{
       display:flex;
       justify-content:space-between;
@@ -69,7 +65,6 @@
     }
     .subline{font-size:14px;color:var(--muted);margin-top:6px}
 
-    /* QR box */
     .qrbox{
       display:flex;
       gap:12px;
@@ -89,15 +84,11 @@
       background:#fff;
       flex:0 0 auto;
     }
-    .qrbox b{display:block}
-    .qrbox small{display:block;color:#555;margin-top:2px;line-height:1.25}
 
-    /* Sections */
     section{margin-bottom:24px}
     h2{color:var(--brand2);margin:0 0 10px;font-size:18px}
     p{margin:0 0 10px;line-height:1.45}
 
-    /* Project image */
     .heroimg{
       width:100%;
       max-height:420px;
@@ -107,7 +98,6 @@
       display:block;
     }
 
-    /* Gallery button */
     .btn{
       display:inline-block;
       padding:12px 18px;
@@ -117,9 +107,7 @@
       text-decoration:none;
       border-radius:10px;
     }
-    .btn:active{transform:translateY(1px)}
 
-    /* Team grid */
     .team{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -142,9 +130,7 @@
       flex:0 0 auto;
     }
     .role{font-size:13px;color:#555}
-    .member p{font-size:14px;margin-top:6px;margin-bottom:0}
 
-    /* Footer */
     .footer{
       margin-top:28px;
       text-align:center;
@@ -154,21 +140,8 @@
       padding-top:12px;
     }
 
-    /* Responsive */
     @media (max-width: 900px){
-      h1{font-size:24px}
-      .paper{padding:18px}
       .team{grid-template-columns:1fr}
-      .qrbox{max-width:100%}
-    }
-    @media (max-width: 480px){
-      .page{padding:16px 12px}
-      .paper{padding:16px}
-      .kicker{font-size:12px}
-      h1{font-size:22px}
-      .member img{width:68px;height:68px}
-      .qrbox img{width:62px;height:62px}
-      .btn{width:100%;text-align:center}
     }
   </style>
 </head>
@@ -181,17 +154,16 @@
         <!-- HEADER -->
         <div class="header">
           <div>
-            <div class="kicker">Qhapaq Ñan · Proyecto XR</div>
-            <h1>NOMBRE DEL PROYECTO</h1>
-            <div class="subline">AR · VR · Impresión 3D · Packaging</div>
+            <div class="kicker">Kit Qhapaq Ñan · Proyecto XR</div>
+            <h1>TerraÑan XR</h1>
+            <div class="subline">Realidad Aumentada · Realidad Virtual · Impresión 3D · Packaging</div>
           </div>
 
-          <!-- QR -->
           <div class="qrbox">
             <img src="qr1.jpg" alt="QR del proyecto" />
             <div>
-              <b>QR del Packaging</b>
-              <small>Escanea para ver la web del proyecto desde tu celular.</small>
+              <b>QR del ecosistema TerraÑan</b>
+              <small>Escanea para acceder a la experiencia AR y VR del proyecto.</small>
             </div>
           </div>
         </div>
@@ -200,30 +172,24 @@
         <section>
           <h2>Descripción del proyecto</h2>
           <p>
-            AQUÍ VA LA DESCRIPCIÓN DEL PROYECTO (5–7 líneas).
-            Explica el concepto del kit Qhapaq Ñan, la conexión cultural
-            Cañari–Inca y cómo se enlaza el packaging físico con la
-            experiencia digital mediante QR.
+            TerraÑan XR es un kit de macetas inspirado en el Qhapaq Ñan que integra el mundo físico y digital mediante tecnologías inmersivas. 
+            A través de realidad aumentada, los usuarios pueden visualizar la maceta en su propio espacio, observar cómo lucen las plantas y explorar el producto antes de adquirirlo. 
+            La experiencia se complementa con un entorno de realidad virtual guiado que transmite el valor cultural andino y fortalece la conexión emocional con el objeto. 
+            El kit incluye una maceta impresa en 3D y un packaging con código QR que enlaza todo el ecosistema, transformando una maceta en una experiencia cultural interactiva.
           </p>
         </section>
 
-        <!-- FOTO DEL PROYECTO -->
+        <!-- FOTO -->
         <section>
           <h2>Foto del proyecto</h2>
-          <img
-            src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=70"
-            alt="Foto del proyecto (referencia)"
-            class="heroimg"
-          />
+          <img src="TU-IMAGEN.jpg" alt="Foto del proyecto" class="heroimg"/>
         </section>
 
-        <!-- GALERÍA AR -->
+        <!-- GALERÍA -->
         <section>
-          <h2>Galería AR</h2>
-          <p>Accede a la galería AR del proyecto desde el siguiente enlace:</p>
-          <a class="btn" href="https://TU-LINK-DE-GALERIA-AR.com" target="_blank" rel="noopener">
-            Abrir Galería AR
-          </a>
+          <h2>Experiencia AR</h2>
+          <p>Explora la visualización de macetas con AR Detection, Model Targets y Multi Targets.</p>
+          <a class="btn" href="TU-LINK-AR" target="_blank">Abrir experiencia AR</a>
         </section>
 
         <!-- EQUIPO -->
@@ -232,55 +198,23 @@
 
           <div class="team">
 
-            <!-- Integrante -->
             <div class="member">
-              <img
-                src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=70"
-                alt="Integrante (referencia)"
-              />
+              <img src="karen1.jpg" alt="Karen Elizalde"/>
               <div>
-                <b>NOMBRE COMPLETO</b><br />
-                <span class="role">Rol: Interacción AR / UX / Modelado 3D</span>
-                <p>Breve descripción del rol dentro del proyecto (2–3 líneas).</p>
+                <b>Karen Elizalde</b><br />
+                <span class="role">AR · Modelado 3D · Impresión</span>
+                <p>Desarrolló la experiencia de realidad aumentada utilizando AR Detection, Model Targets y Multi Targets. 
+                Además, participó en el modelado de la maceta en Blender y en la validación del proceso de impresión 3D.</p>
               </div>
             </div>
 
-            <!-- Integrante -->
             <div class="member">
-              <img
-                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=70"
-                alt="Integrante (referencia)"
-              />
+              <img src="karen2.jpg" alt="Karen Placencia"/>
               <div>
-                <b>NOMBRE COMPLETO</b><br />
-                <span class="role">Rol: VR / Teleport / Audio / Optimización</span>
-                <p>Breve descripción del rol dentro del proyecto (2–3 líneas).</p>
-              </div>
-            </div>
-
-            <!-- Integrante -->
-            <div class="member">
-              <img
-                src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=70"
-                alt="Integrante (referencia)"
-              />
-              <div>
-                <b>NOMBRE COMPLETO</b><br />
-                <span class="role">Rol: Branding / Packaging / Identidad</span>
-                <p>Breve descripción del rol dentro del proyecto (2–3 líneas).</p>
-              </div>
-            </div>
-
-            <!-- Integrante -->
-            <div class="member">
-              <img
-                src="https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&fit=crop&w=400&q=70"
-                alt="Integrante (referencia)"
-              />
-              <div>
-                <b>NOMBRE COMPLETO</b><br />
-                <span class="role">Rol: Documentación / Video / Evidencias</span>
-                <p>Breve descripción del rol dentro del proyecto (2–3 líneas).</p>
+                <b>Karen Placencia</b><br />
+                <span class="role">VR · Narrativa · Gestión empresarial</span>
+                <p>Implementó la experiencia de realidad virtual con locomoción, interacción y guía narrativa. 
+                También contribuyó al desarrollo del modelo de negocio, propuesta de valor y estrategia del proyecto.</p>
               </div>
             </div>
 
@@ -289,7 +223,7 @@
 
         <!-- FOOTER -->
         <div class="footer">
-          Proyecto Integrador · Qhapaq Ñan · Séptimo Ciclo · Diseño Multimedia UPS
+          Proyecto Integrador · Qhapaq Ñan · Diseño Multimedia · UPS
         </div>
 
       </div>
